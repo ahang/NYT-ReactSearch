@@ -1,6 +1,13 @@
 import React from "React";
 import ReactDOM from "react-dom";
+import { HashRouter, Route } from "react-router-dom";
+
+import Main from "./components/Main";
 
 ReactDOM.render(
-	<h1>Hello</h1>,
+	<HashRouter>
+		<div>
+			<Route path="/" component={Main} />
+		</div>
+	</HashRouter>,
 	document.getElementById("app"));
