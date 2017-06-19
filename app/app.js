@@ -1,13 +1,17 @@
 import React from "React";
 import ReactDOM from "react-dom";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import Main from "./components/Main";
+import SearchScreen from "./components/search_screen";
+import Results from "./components/results";
 
 ReactDOM.render(
-	<HashRouter>
+	<BrowserRouter>
 		<div>
 			<Route path="/" component={Main} />
+            <Route path="/" component={SearchScreen} />
+            <Route path="/results" component={Results} />
 		</div>
-	</HashRouter>,
+	</BrowserRouter>,
 	document.getElementById("app"));

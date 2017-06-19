@@ -19,19 +19,19 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 //using static public folder
 app.use(express.static("./public"));
 
-var databaseString = process.env.MONGODB_URI || "mongodb://localhost/NYT-ReactSearch";
+const databaseString = process.env.MONGODB_URI || "mongodb://localhost/NYT-ReactSearch";
 
-mongoose.Promise = Promise;
-mongoose.connect(databaseString);
-const db = mongoose.connection;
+// mongoose.Promise = Promise;
+// mongoose.connect(databaseString);
+// const db = mongoose.connection;
 
-db.on("error", function(err) {
-	console.log("Mongoose Error: ", err);
-});
+// db.on("error", function(err) {
+// 	console.log("Mongoose Error: ", err);
+// });
 
-db.once("open", function() {
-	console.log("Mongoose connection successful.");
-});
+// db.once("open", function() {
+// 	console.log("Mongoose connection successful.");
+// });
 
 
 //Testing
