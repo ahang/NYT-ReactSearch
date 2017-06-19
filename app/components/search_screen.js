@@ -47,7 +47,7 @@ class SearchScreen extends Component {
                 syear: "",
                 eyear: "",
                 data: data});
-            // console.log(this.state.data);
+            console.log(this.state);
             // console.log(this.state.data.data.response.docs[0].lead_paragraph);
         });
     }
@@ -93,7 +93,7 @@ class SearchScreen extends Component {
                     </div>
                     <input type="submit" value="Submit" />
                 </form>
-                <span ><Results data={this.state.data} /></span>
+                {this.state.data ? <Results data={this.state.data} /> : <h1>no data</h1>}
             </div>
         );
     }

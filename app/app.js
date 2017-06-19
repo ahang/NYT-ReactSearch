@@ -8,10 +8,8 @@ import Results from "./components/results";
 
 ReactDOM.render(
 	<BrowserRouter>
-		<div>
-			<Route path="/" component={Main} />
-            <Route path="/" component={SearchScreen} />
-            <Route path="/results" component={Results} />
-		</div>
+		<Route path="/" component={Main} />
+        <Route path="/" component={SearchScreen} />
+        <Route path="/results" component={Results} />
 	</BrowserRouter>,
 	document.getElementById("app"));
