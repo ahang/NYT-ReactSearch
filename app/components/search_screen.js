@@ -48,6 +48,7 @@ class SearchScreen extends Component {
                 eyear: "",
                 data: data});
             console.log(this.state);
+            this.props.history.push("/results");
             // console.log(this.state.data.data.response.docs[0].lead_paragraph);
         });
     }
@@ -93,7 +94,7 @@ class SearchScreen extends Component {
                     </div>
                     <input type="submit" value="Submit" />
                 </form>
-                {this.state.data ? <Results data={this.state.data} /> : <h1>no data</h1>}
+                {this.state.data ? <Results data={this.state.data} /> : <div></div>}
             </div>
         );
     }
