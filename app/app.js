@@ -14,7 +14,6 @@ ReactDOM.render(
 
             <Switch>
                 <Route path="/search" component={SearchScreen} />
-                <Route path="/results" component={Results} />
                 <Route path="/saved" component={SavedArticles} />
                 <Route path="/" component={Main} />
             </Switch>

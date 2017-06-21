@@ -48,7 +48,6 @@ class SearchScreen extends Component {
                 eyear: "",
                 data: data});
             console.log(this.state);
-            this.props.history.push("/results");
             // console.log(this.state.data.data.response.docs[0].lead_paragraph);
         });
     }
@@ -56,8 +55,9 @@ class SearchScreen extends Component {
     render() {
         return (
             <div className="container">
-                <form className="form-group" onSubmit={this.handleSubmit}>
-                    <div className="col-xs-2 form-group">
+                <div className="row">
+                <form className="form-group col-md-4 col-md-offset-4" onSubmit={this.handleSubmit}>
+                    <div className="form-group">
                         <label>
                         Topic:
                             <input
@@ -69,7 +69,7 @@ class SearchScreen extends Component {
                                 onChange = {this.handleInputChange} />
                         </label>
                     </div>
-                    <div className="col-xs-3 form-group">
+                    <div className="form-group">
                         <label>
                         Starting Year:
                             <input
@@ -80,7 +80,7 @@ class SearchScreen extends Component {
                                 onChange= {this.handleInputChange} />
                         </label>
                     </div>
-                    <div className="col-xs-3 form-group">
+                    <div className="form-group">
                         <label>
                         End Year:
                             <input
@@ -91,9 +91,12 @@ class SearchScreen extends Component {
                                 onChange = {this.handleInputChange} />
                         </label>
                     </div>
-                    <input type="submit" value="Submit" />
+                    <input className="btn btn-lg btn-info" type="submit" value="Submit" />
                 </form>
-                {this.state.data ? <Results data={this.state.data} /> : <div>No Results yet</div>}
+                </div>
+                <div className="row">
+                    {this.state.data ? <Results data={this.state.data} /> : <div></div>}
+                </div>
             </div>
         );
     }
