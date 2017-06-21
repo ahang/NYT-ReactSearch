@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+const mongojs = require("mongojs");
 const mongoose = require("mongoose");
 
 const Article = require("./models/Article");
@@ -19,20 +20,24 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 //using static public folder
 app.use(express.static("./public"));
 
-// const databaseString = process.env.MONGODB_URI || "mongodb://localhost/NYT-ReactSearch";
+const databaseString = process.env.MONGODB_URI || "mongodb://localhost/NYT-ReactSearch";
 
-// mongoose.Promise = Promise;
-// mongoose.connect(databaseString);
-// const db = mongoose.connection;
+mongoose.Promise = Promise;
+mongoose.connect(databaseString);
+const db = mongoose.connection;
 
-// db.on("error", function(err) {
-// 	console.log("Mongoose Error: ", err);
-// });
+db.on("error", function(err) {
+	console.log("Mongoose Error: ", err);
+});
 
-// db.once("open", function() {
-// 	console.log("Mongoose connection successful.");
-// });
+db.once("open", function() {
+	console.log("Mongoose connection successful.");
+});
 
+//Importing Routes
+const api = require("./controllers/api_controller.js");
+
+app.use("/", api);
 
 //Testing
 app.get("/", function(req, res) {

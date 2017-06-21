@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Results extends Component {
     constructor(props) {
@@ -8,6 +9,13 @@ class Results extends Component {
     saveArticle(article, event) {
         console.log("saving article");
         console.log(article);
+        axios.post("/api/save-article", {
+            "title": article.headline.main,
+            "date": article.pub_date,
+            "url": article.web_url
+        }).then((response) => {
+            console.log("Successful")
+        })
     }
 
     renderArticles() {
@@ -20,7 +28,7 @@ class Results extends Component {
                     <div className="panel-body">
                         {article.lead_paragraph}
                         <p><a href={article.web_url}>Read more</a></p>
-                        <p>Published: {article.pub_date}</p>
+                        <p>Published: {new Date(article.pub_date).toString()}</p>
                         <button
                             className="btn btn-danger"
                             onClick={this.saveArticle.bind(this, article)}>
