@@ -43,8 +43,8 @@ class Results extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Results this is ze page</h1>
-                {this.renderArticles()}
+                <h1>Resultse</h1>
+                {this.props.data ? this.renderArticles() : <div>No Results yet</div>}
             </div>
         )
     }

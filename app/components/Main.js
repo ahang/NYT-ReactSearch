@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 
+import Header from "./header";
+import Results from "./results";
+import SearchScreen from "./search_screen";
+import SavedArticles from "./saved_articles"
+
 class Main extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	render() {
 		return (
-			<div className="container panel">
-				<div className="row">
-					<h1 className="text-center">New York Times Article Scrubber</h1>
-					<h2 className="text-center">Search for and annotate articles of interest!</h2>
-				</div>
+			<div>
+				<Header />
+				<SearchScreen />
+				<SavedArticles />
 			</div>
 		)
 	}

@@ -39,11 +39,6 @@ const api = require("./controllers/api_controller.js");
 
 app.use("/", api);
 
-//Testing
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
-
 app.listen(PORT, function() {
     console.log(`Server Running on Port: ${PORT}`);
 });

@@ -3,8 +3,8 @@ const router = express.Router();
 const mongojs = require("mongojs");
 const Article = require("../models/Article.js");
 
-router.get("/api/saved", function(req, res) {
-    Article.find({}).exec(function(err, data) {
+router.get("/api/saved", (req, res) => {
+    Article.find({}).exec((err, data) => {
         if (err) {
             console.log(err);
         } else {
@@ -26,8 +26,20 @@ router.post("/api/save-article", (req, res) => {
     });
 });
 
-router.get("/api/delete-article", function(req, res) {
-
+router.get("/api/delete-article/:articleId", (req, res) => {
+    console.log(req.params.articleId);
+    Article.findOneAndRemove(
+    { "_id": req.params.articleId}).exec((err, response) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(response)
+        }
+    })
 });
+
+router.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+})
 
 module.exports = router;

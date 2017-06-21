@@ -56,37 +56,36 @@ class SearchScreen extends Component {
     render() {
         return (
             <div className="container">
-                <div> Hello I am the searchscreen </div>
                 <form className="form-group" onSubmit={this.handleSubmit}>
-                    <div className="form-group">
+                    <div className="col-xs-2 form-group">
                         <label>
                         Topic:
                             <input
                                 name = "topic"
                                 placeholder = "Input a Topic"
-                                className ="form-control"
+                                className ="form-control input-lg"
                                 type = "text"
                                 value = {this.state.topic}
                                 onChange = {this.handleInputChange} />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="col-xs-3 form-group">
                         <label>
                         Starting Year:
                             <input
                                 name ="syear"
-                                className ="form-control"
+                                className ="form-control input-lg"
                                 type = "date"
                                 value = {this.state.syear}
                                 onChange= {this.handleInputChange} />
                         </label>
                     </div>
-                    <div className="form-group">
+                    <div className="col-xs-3 form-group">
                         <label>
                         End Year:
                             <input
                                 name = "eyear"
-                                className ="form-control"
+                                className ="form-control input-lg"
                                 type = "date"
                                 value = {this.state.eyear}
                                 onChange = {this.handleInputChange} />
@@ -94,7 +93,7 @@ class SearchScreen extends Component {
                     </div>
                     <input type="submit" value="Submit" />
                 </form>
-                {this.state.data ? <Results data={this.state.data} /> : <div></div>}
+                {this.state.data ? <Results data={this.state.data} /> : <div>No Results yet</div>}
             </div>
         );
     }
