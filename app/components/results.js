@@ -7,11 +7,12 @@ class Results extends Component {
         this.saveArticle = this.saveArticle.bind(this)
     }
 
-    saveArticle(article, event) {
+    saveArticle( event) {
+        const article = event.target.dataset;
         axios.post("/api/save-article", {
-            "title": article.headline.main,
-            "date": article.pub_date,
-            "url": article.web_url
+            "title": article.title,
+            "date": article.date,
+            "url": article.url
         }).then((response) => {
             console.log("Successful")
         })
@@ -29,9 +30,11 @@ class Results extends Component {
                         <p><a href={article.web_url}>Read more</a></p>
                         <p>Published: {new Date(article.pub_date).toString()}</p>
                         <button
-                            className="btn btn-danger"
-                            data-title=""
-                            onClick={this.saveArticle(article)}>
+                            className = "btn btn-danger"
+                            data-title = {article.headline.main}
+                            data-url = {article.web_url}
+                            data-date = {article.pub_date}
+                            onClick = {this.saveArticle}>
                             Save Article
                         </button>
                     </div>
@@ -44,7 +47,7 @@ class Results extends Component {
         return (
             <div className="container">
                 <h1>Results</h1>
-                {this.renderArticles()}
+                {this.props.data ? this.renderArticles() : <div>Loading..</div>}
             </div>
         )
     }

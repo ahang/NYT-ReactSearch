@@ -12,9 +12,9 @@ const App = () => {
     return (
         <HashRouter>
             <Switch>
-                <Route exact path="/search" component={SearchScreen} />
-                <Route path="/saved" component={SavedArticles} />
-                <Route exact path="/" component={Main} />
+                <Route exact path = "/search" component = {SearchScreen} />
+                <Route path = "/saved" component = {SavedArticles} />
+                <Route exact path = "/" component = {Main} />
             </Switch>
         </HashRouter>
     )

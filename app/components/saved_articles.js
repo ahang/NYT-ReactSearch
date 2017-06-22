@@ -10,10 +10,7 @@ class SavedArticles extends Component {
 
     componentDidMount () {
         console.log("Component Mounted");
-        axios.get("/api/saved").then((response) => {
-            this.setState({ data: response })
-            this.renderSavedArticles()
-        })
+        this.updateArticle()
     }
 
     removeArticle(event) {
@@ -33,16 +30,16 @@ class SavedArticles extends Component {
         return this.state.data.data.map((article) => {
             return (
                 <div className = "panel panel-primary" key={article._id}>
-                    <div className="panel-heading">
-                        <h3 className="panel-title">{article.title}</h3>
+                    <div className = "panel-heading">
+                        <h3 className = "panel-title">{article.title}</h3>
                     </div>
-                    <div className="panel-body">
-                        <p><a href={article.url}>Read about it</a></p>
+                    <div className = "panel-body">
+                        <p><a href = {article.url}>Read about it</a></p>
                         <p>Written on: {new Date(article.date).toString()}</p>
                         <button
-                            className="btn btn-warning"
-                            value={article._id}
-                            onClick={this.removeArticle}>
+                            className = "btn btn-warning"
+                            value = {article._id}
+                            onClick = {this.removeArticle}>
                             Remove Article
                         </button>
                     </div>
