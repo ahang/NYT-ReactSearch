@@ -7,7 +7,7 @@
     "dev": "nodemon server",
     "build": "webpack",
     "prod": "node server",
-    "postinstall": "webpack -p"
+    "postinstall": "webpack"
 
   },
   "repository": {
