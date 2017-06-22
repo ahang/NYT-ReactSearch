@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon server",
     "build": "webpack",
-    "start": "webpack & node server"
+    "start": "node server",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+
   },
   "repository": {
     "type": "git",
