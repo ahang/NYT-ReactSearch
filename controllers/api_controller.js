@@ -33,7 +33,7 @@ router.get("/api/delete-article/:articleId", (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(response)
+            res.json(response)
         }
     })
 });

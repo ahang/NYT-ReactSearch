@@ -4,11 +4,10 @@ import axios from "axios";
 class Results extends Component {
     constructor(props) {
         super(props);
+        this.saveArticle = this.saveArticle.bind(this)
     }
 
     saveArticle(article, event) {
-        console.log("saving article");
-        console.log(article);
         axios.post("/api/save-article", {
             "title": article.headline.main,
             "date": article.pub_date,
@@ -31,7 +30,8 @@ class Results extends Component {
                         <p>Published: {new Date(article.pub_date).toString()}</p>
                         <button
                             className="btn btn-danger"
-                            onClick={this.saveArticle.bind(this, article)}>
+                            data-title=""
+                            onClick={this.saveArticle(article)}>
                             Save Article
                         </button>
                     </div>

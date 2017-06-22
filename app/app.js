@@ -1,22 +1,25 @@
 import React from "React";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { createBrowserHistory as history } from "history";
 
 import Main from "./components/Main";
 import SearchScreen from "./components/search_screen";
 import Results from "./components/results";
 import SavedArticles from "./components/results";
 
-ReactDOM.render(
-	<BrowserRouter>
-
+const App = () => {
+    return (
+        <HashRouter>
             <Switch>
-                <Route path="/search" component={SearchScreen} />
+                <Route exact path="/search" component={SearchScreen} />
                 <Route path="/saved" component={SavedArticles} />
-                <Route path="/" component={Main} />
+                <Route exact path="/" component={Main} />
             </Switch>
+        </HashRouter>
+    )
+}
 
-	</BrowserRouter>,
+ReactDOM.render(
+	<App />,
 	document.getElementById("app"));

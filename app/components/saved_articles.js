@@ -5,20 +5,27 @@ class SavedArticles extends Component {
     constructor(props) {
         super(props);
         this.state = { data: null }
+        this.removeArticle = this.removeArticle.bind(this)
     }
 
     componentDidMount () {
         console.log("Component Mounted");
         axios.get("/api/saved").then((response) => {
             this.setState({ data: response })
-            console.log(this.state.data.data);
+            this.renderSavedArticles()
         })
     }
 
-    removeArticle(article, event) {
-        console.log(article);
-        axios.get(`/api/delete-article/${article._id}`).then((response) => {
-            console.log(Woo);
+    removeArticle(event) {
+        console.log(event.target.value);
+        axios.get(`/api/delete-article/${event.target.value}`).then((response) => {
+            this.updateArticle()
+        })
+    }
+
+    updateArticle () {
+        axios.get("/api/saved").then((response) => {
+            this.setState({ data: response })
         })
     }
 
@@ -34,7 +41,8 @@ class SavedArticles extends Component {
                         <p>Written on: {new Date(article.date).toString()}</p>
                         <button
                             className="btn btn-warning"
-                            onClick={this.removeArticle.bind(this, article)}>
+                            value={article._id}
+                            onClick={this.removeArticle}>
                             Remove Article
                         </button>
                     </div>

@@ -47,8 +47,6 @@ class SearchScreen extends Component {
                 syear: "",
                 eyear: "",
                 data: data});
-            console.log(this.state);
-            // console.log(this.state.data.data.response.docs[0].lead_paragraph);
         });
     }
 
@@ -73,11 +71,11 @@ class SearchScreen extends Component {
                         <label>
                         Starting Year:
                             <input
-                                name ="syear"
-                                className ="form-control input-lg"
+                                name = "syear"
+                                className = "form-control input-lg"
                                 type = "date"
                                 value = {this.state.syear}
-                                onChange= {this.handleInputChange} />
+                                onChange = {this.handleInputChange} />
                         </label>
                     </div>
                     <div className="form-group">
@@ -91,7 +89,7 @@ class SearchScreen extends Component {
                                 onChange = {this.handleInputChange} />
                         </label>
                     </div>
-                    <input className="btn btn-lg btn-info" type="submit" value="Submit" />
+                    <input className = "btn btn-lg btn-info" type = "submit" value = "Submit" />
                 </form>
                 </div>
                 <div className="row">
