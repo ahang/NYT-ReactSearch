@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server",
-    "build": "webpack",
     "start": "node server.js",
     "postinstall": "webpack"
   },
