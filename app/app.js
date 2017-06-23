@@ -10,13 +10,15 @@ import SavedArticles from "./components/results";
 
 const App = () => {
     return (
-        <HashRouter>
-            <Switch>
-                <Route exact path = "/search" component = {SearchScreen} />
-                <Route path = "/saved" component = {SavedArticles} />
-                <Route exact path = "/" component = {Main} />
-            </Switch>
-        </HashRouter>
+        <div>
+            <HashRouter>
+                <Switch>
+                    <Route exact path = "/search" component = {SearchScreen} />
+                    <Route path = "/saved" component = {SavedArticles} />
+                    <Route exact path = "/" component = {Main} />
+                </Switch>
+            </HashRouter>
+        </div>
     )
 }
 
