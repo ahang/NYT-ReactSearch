@@ -28,7 +28,7 @@ module.exports = {
       }
     })
   ],
-//comment
+
   module: {
     loaders: [
       { test: /\.js?$/,
