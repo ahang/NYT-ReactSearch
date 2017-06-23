@@ -24,6 +24,7 @@ class SearchScreen extends Component {
 	}
 
     handleInputChange(event) {
+        //onInputChange update the state key with the appropriate value
         const target = event.target;
         const value = event.target.value;
         const name = target.name;
@@ -34,6 +35,7 @@ class SearchScreen extends Component {
     }
 
     handleSubmit(event) {
+        //onSubmit format the starting and end year, and use axios to get the articles
         event.preventDefault();
         const formatSyear = this.state.syear.split("-").join("");
         const formatEyear = this.state.eyear.split("-").join("");
@@ -45,6 +47,7 @@ class SearchScreen extends Component {
         		"end_date": formatEyear
         	}
         }).then((data) => {
+            //on completition set the state keys to empty and add set the state for the data to be the data that I can hand off to the results component
             this.setState({ topic: "",
                 syear: "",
                 eyear: "",

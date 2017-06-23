@@ -11,18 +11,21 @@ class SavedArticles extends Component {
     }
 
     componentDidMount () {
-        console.log("Component Mounted");
+        // console.log("Component Mounted");
+        //On initial component, use updateArticle to set the state with the existing saved article
         this.updateArticle()
     }
 
     removeArticle(event) {
-        console.log(event.target.value);
+        // console.log(event.target.value);
+        //remove an article based on the article id from mongo and reupdate the state
         axios.get(`/api/delete-article/${event.target.value}`).then((response) => {
             this.updateArticle()
         })
     }
 
     updateArticle () {
+        //setting state with new articles if any
         axios.get("/api/saved").then((response) => {
             this.setState({ data: response })
         })

@@ -8,13 +8,14 @@ class Results extends Component {
     }
 
     saveArticle( event) {
+        //grabbing the dataset based off the button and posting it to node/express to handle
         const article = event.target.dataset;
         axios.post("/api/save-article", {
             "title": article.title,
             "date": article.date,
             "url": article.url
         }).then((response) => {
-            console.log("Successful")
+            // console.log("Successful")
         })
     }
 

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Article = require("../models/Article.js");
 
+//a route to get all saved articles
 router.get("/api/saved", (req, res) => {
     Article.find({}).exec((err, data) => {
         if (err) {
@@ -12,6 +13,7 @@ router.get("/api/saved", (req, res) => {
     });
 });
 
+//router to save an article to db
 router.post("/api/save-article", (req, res) => {
     console.log(req.body);
     const newArticle = new Article(req.body);
@@ -25,6 +27,7 @@ router.post("/api/save-article", (req, res) => {
     });
 });
 
+//router to delete an article
 router.get("/api/delete-article/:articleId", (req, res) => {
     console.log(req.params.articleId);
     Article.findOneAndRemove(
@@ -37,6 +40,7 @@ router.get("/api/delete-article/:articleId", (req, res) => {
     })
 });
 
+//router to send initial index on / load
 router.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
 })
