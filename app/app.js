@@ -8,7 +8,7 @@ import SearchScreen from "./components/search_screen";
 import Results from "./components/results";
 import SavedArticles from "./components/results";
 
-const App = () => {
+const App = () {
     return (
         <div>
             <HashRouter>

@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: [
-    './app/app'
+    './app/app.js'
   ],
 
   output: {
@@ -33,7 +33,11 @@ module.exports = {
     loaders: [
       { test: /\.js?$/,
         loader: 'babel-loader',
+        query: {
+          presets:["es2015", "react", "stage-0"]
+        }
         exclude: /node_modules/ },
+
       { test: /\.scss?$/,
         loader: 'style!css!sass',
         include: path.join(__dirname, 'src', 'styles') },
