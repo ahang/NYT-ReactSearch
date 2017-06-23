@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const mongojs = require("mongojs");
 const Article = require("../models/Article.js");
 
 router.get("/api/saved", (req, res) => {
