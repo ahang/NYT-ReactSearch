@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import Results from "./results";
+import Header from "./header";
 
 const API_KEY = "2f4849ecd975430685d3198288b2252e";
 const URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
@@ -53,44 +55,48 @@ class SearchScreen extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
-                <form className="form-group col-md-4 col-md-offset-4" onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>
-                        Topic:
-                            <input
-                                name = "topic"
-                                placeholder = "Input a Topic"
-                                className ="form-control input-lg"
-                                type = "text"
-                                value = {this.state.topic}
-                                onChange = {this.handleInputChange} />
-                        </label>
-                    </div>
-                    <div className="form-group">
-                        <label>
-                        Starting Year:
-                            <input
-                                name = "syear"
-                                className = "form-control input-lg"
-                                type = "date"
-                                value = {this.state.syear}
-                                onChange = {this.handleInputChange} />
-                        </label>
-                    </div>
-                    <div className="form-group">
-                        <label>
-                        End Year:
-                            <input
-                                name = "eyear"
-                                className ="form-control input-lg"
-                                type = "date"
-                                value = {this.state.eyear}
-                                onChange = {this.handleInputChange} />
-                        </label>
-                    </div>
-                    <input className = "btn btn-lg btn-info" type = "submit" value = "Submit" />
-                </form>
+                <Header />
+                <Link to = "/"><button className="btnLink btn btn-lg btn-warning btn-block">Home</button></Link>
+                <Link to = "/saved"><button className="btn-block btn btn-lg btn-info btnLink">View Saved Articles</button></Link>
+                <div className = "row search-row">
+                    <h1 className = "text-center">Search Query</h1>
+                    <form className = "form-group col-md-4 col-md-offset-4" onSubmit={this.handleSubmit}>
+                        <div className = "form-group">
+                            <label>
+                            Topic:
+                                <input
+                                    name = "topic"
+                                    placeholder = "Input a Topic"
+                                    className ="form-control input-lg"
+                                    type = "text"
+                                    value = {this.state.topic}
+                                    onChange = {this.handleInputChange} />
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label>
+                            Starting Year:
+                                <input
+                                    name = "syear"
+                                    className = "form-control input-lg"
+                                    type = "date"
+                                    value = {this.state.syear}
+                                    onChange = {this.handleInputChange} />
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label>
+                            End Year:
+                                <input
+                                    name = "eyear"
+                                    className ="form-control input-lg"
+                                    type = "date"
+                                    value = {this.state.eyear}
+                                    onChange = {this.handleInputChange} />
+                            </label>
+                        </div>
+                        <input className = "btn btn-lg btn-info" type = "submit" value = "Submit" />
+                    </form>
                 </div>
                 <div className="row">
                     {this.state.data ? <Results data={this.state.data} /> : <div></div>}

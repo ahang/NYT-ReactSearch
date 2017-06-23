@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
 import Header from "./header";
-import Results from "./results";
-import SearchScreen from "./search_screen";
-import SavedArticles from "./saved_articles"
+import Links from "./links";
+import Footer from "./footer";
 
 class Main extends Component {
 	constructor(props) {
@@ -14,8 +13,8 @@ class Main extends Component {
 		return (
 			<div>
 				<Header />
-				<SearchScreen />
-				<SavedArticles />
+				<Links />
+				<Footer />
 			</div>
 		)
 	}

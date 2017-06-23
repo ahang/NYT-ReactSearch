@@ -1,3 +1,17 @@
 .input-lg {
     width: 500px;
 }
+
+.btnLink {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.search-row {
+    border: 2px solid grey;
+}
+
+.footer {
+    text-align: center;
+}

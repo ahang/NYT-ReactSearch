@@ -30,7 +30,7 @@ class Results extends Component {
                         <p><a href={article.web_url}>Read more</a></p>
                         <p>Published: {new Date(article.pub_date).toString()}</p>
                         <button
-                            className = "btn btn-danger"
+                            className = "btn btn-success"
                             data-title = {article.headline.main}
                             data-url = {article.web_url}
                             data-date = {article.pub_date}
@@ -45,8 +45,8 @@ class Results extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h1>Results</h1>
+            <div className = "container">
+                <h1 className = "text-center">Results</h1>
                 {this.props.data ? this.renderArticles() : <div>Loading..</div>}
             </div>
         )
